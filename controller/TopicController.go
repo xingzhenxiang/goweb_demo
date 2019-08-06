@@ -139,7 +139,7 @@ func (p *TopicConterller) listTopic(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("字符串转换成整数失败")
 		page = 1
 	}
-	pre_page := 3
+	pre_page := 10
 	Topics := TopicService.LimitList(pre_page, page)
 	totals := TopicService.GetDataNum()
 	res := utils.Paginator(page, pre_page, totals)
