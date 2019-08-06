@@ -98,7 +98,10 @@ func (p *UserConterller) login(w http.ResponseWriter, r *http.Request) {
 
 		cookie := http.Cookie{Name: "testcookiename", Value: "testcookievalue", Path: "/", MaxAge: 86400}
 		http.SetCookie(w, &cookie)
-		framework.ResultOk(w, "login success") //这个操作在cookie操作前，会导致cookie写入失败
+		//framework.ResultOk(w, "login success") //这个操作在cookie操作前，会导致cookie写入失败
 
+		Message := "login success "
+
+		framework.OpResult(w, Message)
 	}
 }

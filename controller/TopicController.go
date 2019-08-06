@@ -47,11 +47,16 @@ func (p *TopicConterller) addtopic(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		id := TopicService.Insert(title, topicspreview, topicsinfo)
+
 		if id <= 0 {
-			framework.ResultFail(w, "addtopic fail")
+			Message := "addtopic fail"
+			framework.OpResult(w, Message)
 			return
 		}
-		framework.ResultOk(w, "addtopic success")
+
+		Message := "add topic success"
+
+		framework.OpResult(w, Message)
 	}
 }
 
@@ -76,7 +81,10 @@ func (p *TopicConterller) topicDeleteById(w http.ResponseWriter, r *http.Request
 	urlstr := r.URL.String()
 	n := strings.Index(urlstr, "=")
 	TopicService.TopicDeleteById(string(urlstr[n+1:]))
-	http.Redirect(w, r, "/index", 302)
+
+	Message := "delete topic success"
+
+	framework.OpResult(w, Message)
 }
 
 func (p *TopicConterller) detailTopic(w http.ResponseWriter, r *http.Request) {
@@ -123,10 +131,14 @@ func (p *TopicConterller) modifyTopic(w http.ResponseWriter, r *http.Request) {
 		}
 		num := TopicService.TopicModifyB(title, topicspreview, topicsinfo, id)
 		if num <= 0 {
-			framework.ResultFail(w, "addtopic fail")
+			Message := "modify topic fail"
+
+			framework.OpResult(w, Message)
 			return
 		}
-		framework.ResultOk(w, "addtopic success")
+		Message := "modify topic success"
+
+		framework.OpResult(w, Message)
 	}
 }
 
