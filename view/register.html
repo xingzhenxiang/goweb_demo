@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+        <html>
+            <meta charset="utf-8"/>
+            <head>
+                <title>主页</title>
+            </head>
+            <body>
+<a href="/">我的博客</a>
+<div>
+	<ul >
+		<li ><a href="/">首页</a></li>
+		<li ><a href="/topic">文章</a></li>
+		<li><a href="/login?exit=true">退出登录</a></li>
+		<li><a href="/login">管理员登录</a></li>
+		<li><a href="/topic/add">写博客</a></li>
+	</ul>
+</div>
+<form action="/register" method="post">
+    用户名:<input type="text" name="username"><br>
+    密码:<input type="password" name="password"><br>
+    <input type="submit" value="注册"><br>
+</form>
+</body>
+</html>

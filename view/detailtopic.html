@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+        <html>
+            <meta charset="utf-8"/>
+            <head>
+                <title>主页</title>
+            </head>
+            <body>
+<a href="/">我的博客</a>
+<div>
+	<ul >
+		<li ><a href="/">首页</a></li>
+		<li ><a href="/topic">文章</a></li>
+		<li><a href="/login?exit=true">退出登录</a></li>
+		<li><a href="/login">管理员登录</a></li>
+		<li><a href="/topic/add">写博客</a></li>
+	</ul>
+</div>
+<form action="/" method="post">
+    {{range .}}
+    <input type="hidden" name="id" value="{{.ID}}">
+    标题:<input  readonly="readonly" type="text" name="title" value="{{.Title}}" ><br>
+    预览内容:<input  readonly="readonly" type="text" name="topicspreview" value="{{.TopicsPreview}}"><br>
+    具体内容:<textarea  readonly="readonly" type="text" name="topicsinfo">{{.TopicsInfo}}</textarea><br>
+    {{end}}
+</form>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<head>
+    <title>首页 - 博文列表页面</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      .am-cf{
+        height: 50px;         
+        margin-top: 30px;
+        line-height: 50px;
+        text-align: center;
+        vertical-align: middle;
+        margin-left: 40%;
+      }
+      .am-fr{
+          float: left;
+          line-height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          height: 50px;
+          margin-top: -15px;
+      }
+      .am-pagination{
+        list-style:none;
+        height: 50px;   
+        line-height: 50px;
+        text-align: center;
+        vertical-align: middle;
+      }
+      .am-pagination li{
+        float:left;
+        margin-left: 10px;
+      }
+      .am-pagination li a{
+        text-decoration:none;
+      }
+      .am-jl{
+          float: left;
+          margin-left: 20px;
+      }
+      .am-active{
+          color: #f00;
+      }
+    </style>
+  </head>
+            <body>
+<a href="/">我的博客</a>
+<div>
+	<ul >
+		<li ><a href="/">首页</a></li>
+		<li ><a href="/topic">文章</a></li>
+		<li><a href="/login?exit=true">退出登录</a></li>
+		<li><a href="/login">管理员登录</a></li>
+		<li><a href="/topic/add">写博客</a></li>
+	</ul>
+</div>
+                <form>
+			
+                    <table align="center">
+                        {{ range $index, $item := .datas}}
+						<tr>
+                            <td>id:</td>
+                            <td>{{$item.ID}}</td>
+                        </tr>
+                        <tr>
+                            <td>标题:</td>
+                            <td>{{$item.Title}}</td>
+                        </tr>
+						 <tr>
+                            <td>预览内容:</td>
+                            <td>{{$item.TopicsPreview}}</td>
+                        </tr>
+                        <tr>
+                            <td>创建时间:</td>
+                            <td>{{$item.CreateTime}}</td>
+                        </tr>
+						<th>
+              <a href="/topic/detail?id={{.ID}}">详细内容</a>
+							<a href="/topic/modify?id={{.ID}}">修改</a>
+							<a href="/topic/delete?id={{.ID}}">删除</a>
+						</th>
+                        {{end}}
+                    </table>
+                </form>
+                <div class="am-cf">
+                    
+                    <div class="am-fr">
+                      <ul class="am-pagination">
+                      <li class=""><a href="/List?page={{.paginator.firstpage}}">«</a></li>
+                      {{range $index,$page := .paginator.pages}}
+                        <li  {{if eq $.paginator.currpage $page }}class="am-active"{{end}}>
+                            <a href="/List?page={{$page}}">{{$page}}</a></li> 
+                      {{end}}
+                        <li><a href="/List?page={{.paginator.lastpage}}">»</a></li>
+                      </ul>
+                    </div>
+                    <div class="am-jl">
+                            共{{.totals}}条记录 共记{{.paginator.totalpages}} 页 当前{{.paginator.currpage}}页
+                       </div>   
+                  </div>
+                <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>       
+                 
+            </body>
+        </html>
