@@ -3,6 +3,21 @@
             <meta charset="utf-8"/>
             <head>
                 <title>主页</title>
+                <style>
+                    ul
+                    {
+                    list-style-type:none;
+                    margin:0;
+                    padding:0;
+                    overflow:hidden;
+                    text-align: center;
+                    }
+                    li
+                    {
+                    float:left;
+                    margin-left: 20px;
+                    }
+                        </style>
             </head>
             <body>
 <a href="/">我的博客</a>
@@ -15,6 +30,8 @@
 		<li><a href="/topic/add">写博客</a></li>
 	</ul>
 </div>
+<br>
+<br>
                 <form>
                     <table align="center">
                         {{range .}}

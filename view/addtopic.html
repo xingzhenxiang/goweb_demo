@@ -3,6 +3,21 @@
             <meta charset="utf-8"/>
             <head>
                 <title>添加博文页面</title>
+                <style>
+                    ul
+                    {
+                    list-style-type:none;
+                    margin:0;
+                    padding:0;
+                    overflow:hidden;
+                    text-align: center;
+                    }
+                    li
+                    {
+                    float:left;
+                    margin-left: 20px;
+                    }
+                        </style>
             </head>
             <body>
 <a href="/">我的博客</a>
@@ -15,6 +30,8 @@
 		<li><a href="/topic/add">写博客</a></li>
 	</ul>
 </div>
+<br>
+<br>
 <form action="/topic/add" method="post">
     标题:<input type="text" name="title"><br>
     预览内容:<input type="text" name="topicspreview"><br>

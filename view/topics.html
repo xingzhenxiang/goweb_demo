@@ -3,6 +3,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title> JS分页放弃使用</title>
+<style>
+    ul
+    {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    text-align: center;
+    }
+    li
+    {
+    float:left;
+    margin-left: 20px;
+    }
+        </style>
 <script>
 /**
  * 分页函数
@@ -67,6 +82,8 @@ function goPage(pno,psize){
 		<li><a href="/topic/add">写博客</a></li>
 	</ul>
 </div>
+<br>
+<br>
   <table id="idData" width="70%">
                         {{range .}}
 						<tr>
